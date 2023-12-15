@@ -1,0 +1,12 @@
+# Usa una imagen oficial de MySQL
+FROM mysql:latest
+
+# Copia el script SQL de inicialización de la base de datos
+COPY init.sql /docker-entrypoint-initdb.d/
+
+# Configura las variables de entorno para la base de datos
+ENV MYSQL_DATABASE accwe-hospital
+ENV MYSQL_ROOT_PASSWORD root
+
+# Expone el puerto por defecto de MySQL
+EXPOSE 3306
